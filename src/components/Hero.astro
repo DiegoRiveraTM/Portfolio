@@ -1,0 +1,71 @@
+---
+import { Image } from 'astro:assets';
+import dr from '../assets/dr.jpg'
+---
+<section class="hero">
+    <div class="content">
+        <p class="greeting">Hi! I'm Diego Rivera</p>
+        <h1 class="position"><span>Software Developer</span></h1>
+        <p class="description">
+            Currently studying my 5th semester, I like to travel, listen music and drink coffee. 
+            My interests are: Backend, AI and mobile apps.
+            Very soon I will do my last year especializing in DevOps, hope we can connect soon!
+        </p>
+        <p></p>
+    </div>
+
+    <div class="image-container">
+        <Image src={dr} alt="Diego Rivera">
+    </div>
+</section>
+
+<style>
+    .image-container{
+        flex: 0 0 auto;
+    }
+    .image-container img {
+    width: 380px;           
+    height: 380px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.05);
+    }
+    .hero{
+        display: flex;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        gap: 100px;             
+        min-height: 80vh;
+        padding: 0 20px;
+        max-width: 1200px;      
+        margin: 0 auto;
+    }
+    .greeting{
+        color: white;
+        font-weight: bolder;
+    }
+    .position{
+        color:white;
+    }
+    .description{
+        color:white;
+        text-align: justify;
+    }
+    .hero{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 100px 20px;
+        min-height: 40vh;
+    }
+    .content{
+        flex: 1;            
+        max-width: 500px;
+    }
+    p{
+        font-size: 18px;
+    }
+
+</style>
