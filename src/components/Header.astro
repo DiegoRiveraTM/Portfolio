@@ -1,12 +1,12 @@
 ---
-
+import Projects from "./Projects.astro"
 ---
 
 <nav>
     <ul class="container">
-        <li class="header">Home</li>
-        <li class="header">Projects</li>
-        <li class="header">Contact Me</li>
+        <li class="header"><a href="#home">Home</a></li>
+        <li class="header"><a href="#projects">Projects</a></li>
+        <li class="header"><a href="#contact">Contact Me</a></li>
     </ul>
 </nav>
 
@@ -23,7 +23,10 @@
         position: sticky;
         top: 20px;
         margin: 20px auto;
+        text-decoration: none;
         width: max-content;
+        transition: all 0.3s ease;
+        color: white;
     }
     .header{
         display: flex;
@@ -32,9 +35,6 @@
         cursor: pointer;
         font-style: DM-Sans;
     }
-    @media (min-width: 768px) {
-    .animate-scroll {
-    animation-duration: 50s;
-    }
-}
+
+    
 </style>
