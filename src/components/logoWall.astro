@@ -1,0 +1,109 @@
+---
+
+const technologies = [
+    "react",
+    "astro",
+    "typescript",
+    "java",
+    "css",
+    "express",
+    "git",
+    "aws",
+    "mysql",
+    "linux"
+    
+]
+
+const methodologies = [
+    "SCRUM",
+    "Kanban"
+]
+
+const languages = [
+    "English",
+    "Spanish"
+]
+---
+<div class="scroller-container">
+    <div class="scroller-inner">
+        {
+            [...technologies, ...technologies].map((tech, index) =>(
+                <div
+                class ="tech-item"
+                aria-hidden={index >= technologies.length ? "true" : "false"}
+                >
+                <img
+                src={`/svg/${tech}.svg`}
+                alt={tech}
+                width="30"
+                height="30"
+                loading={index < technologies.length ? "eager" : "lazy"}
+                onerror="this.style.display='none'"
+                />
+                <span class="tech-name">
+                    {tech.charAt(0).toUpperCase() + tech.slice(1)}
+                </span>
+                </div>
+            ))
+        }
+    </div>
+</div>
+
+<style is:global>
+    .scroller-container {
+        overflow: hidden;
+        padding: 2rem 0;
+        width: 100%;
+        -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    }
+
+    .scroller-inner {
+        display: flex;
+        width: max-content;
+        animation: scroll 35s linear infinite;
+    }
+
+    .scroller-inner:hover {
+        animation-play-state: paused;
+    }
+
+    .tech-item {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding-right: 4rem;
+    }
+
+    .tech-item img {
+        height: 30px;
+        width: auto;
+        opacity: 0.7;
+        transition: transform 0.3s ease;
+    }
+
+    .tech-name {
+        font-family: system-ui, sans-serif;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #fff;
+    }
+
+    .tech-item:hover img {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    @keyframes scroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+    }
+    
+    @media (min-width: 768px) {
+    .animate-scroll {
+    animation-duration: 50s;
+    }
+}
+
+    
+</style>
