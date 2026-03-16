@@ -1,10 +1,10 @@
-# 🚀 Diego Rivera | Full-Stack Developer Portfolio
+# Diego Rivera
 
 Welcome to my professional showcase. This project is a high-performance, SEO-friendly portfolio built with **Astro**, designed to demonstrate my technical skills, projects, and passion for clean code.
 
 ---
 
-## 📂 Installation & Local Setup
+## Installation & Local Setup
 
 1.  **Clone the project:**
     ```bash
