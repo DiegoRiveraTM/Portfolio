@@ -25,8 +25,8 @@ import dr from '../assets/dr.jpg'
         flex: 0 0 auto;
     }
     .image-container img {
-    width: 380px;           
-    height: 380px;
+    width: 250px;           
+    height: 250px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 0 50px rgba(255, 255, 255, 0.05);
@@ -67,6 +67,95 @@ import dr from '../assets/dr.jpg'
     }
     p{
         font-size: 18px;
+    }
+
+    @media (max-width: 1024px) {
+    .hero {
+        gap: 50px;
+        padding: 80px 20px;
+    }
+
+    .image-container img {
+        width: 320px;
+        height: 320px;
+    }
+
+    .content {
+        max-width: 450px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+    }
+
+    @media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        gap: 30px;
+        padding: 60px 20px;
+        min-height: auto;
+    }
+
+    .image-container {
+        flex: none;
+    }
+
+    .image-container img {
+        width: 250px;
+        height: 280px;
+    }
+
+    .content {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .greeting {
+        font-size: 1.2rem;
+    }
+
+    .position {
+        font-size: 1.8rem;
+    }
+
+    p {
+        font-size: 15px;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .hero {
+        flex-direction: column;
+        gap: 20px;
+        padding: 40px 15px;
+        min-height: auto;
+    }
+
+    .image-container img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .content {
+        max-width: 100%;
+    }
+
+    .greeting {
+        font-size: 1rem;
+    }
+
+    .position {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .description {
+        text-align: left;
+    }
     }
     
 

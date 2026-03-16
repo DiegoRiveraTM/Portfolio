@@ -100,11 +100,56 @@ const languages = [
         to { transform: translateX(-50%); }
     }
 
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
+    .scroller-container {
+        padding: 1.5rem 0;
+        padding-top: 3%;
+    }
+
+    .tech-item {
+        gap: 0.5rem;
+        padding-right: 3rem;
+    }
+
+    .tech-item img {
+        height: 24px;
+    }
+
+    .tech-name {
+        font-size: 0.95rem;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .scroller-container {
+        padding: 1rem 0;
+        padding-top: 2%;
+    }
+
+    .tech-item {
+        gap: 0.4rem;
+        padding-right: 2rem;
+    }
+
+    .tech-item img {
+        height: 20px;
+    }
+
+    .tech-name {
+        font-size: 0.8rem;
+    }
+
+    .scroller-inner {
+        animation: scroll 25s linear infinite;
+    }
+    }
+    
+    @media (min-width: 768px) and (max-width: 1024px) {
+    .scroller-inner {
+        animation-duration: 40s;
+    }
+    }
     .animate-scroll {
     animation-duration: 50s;
     }
-}
-
-    
 </style>

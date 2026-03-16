@@ -47,5 +47,60 @@ import Projects from "./Projects.astro"
         text-decoration: none;
     }
 
+    @media (max-width: 768px) {
+    .container {
+        gap: 20px;
+        padding: 8px 20px;
+        flex-wrap: wrap;
+        top: 10px;
+        margin: 10px auto;
+    }
+    
+
+    .header {
+        gap: 20px;
+        font-size: 0.9rem;
+    }
+
+    container a{
+        text-decoration: none;
+        color: white;
+    }
+    .header a:visited{
+        color: white;
+    }
+    .header a {
+        text-decoration: none;
+    }
+
+    }
+
+    @media (max-width: 480px) {
+    .container {
+        gap: 15px;
+        padding: 8px 15px;
+        flex-wrap: wrap;
+        top: 5px;
+        margin: 5px auto;
+        border-radius: 40px;
+    }
+
+    .header {
+        gap: 15px;
+        font-size: 0.8rem;
+    }
+
+    container a{
+        text-decoration: none;
+        color: white;
+    }
+    .header a:visited{
+        color: white;
+    }
+    .header a {
+        text-decoration: none;
+    }
+    
+    }
     
 </style>

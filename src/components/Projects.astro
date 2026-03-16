@@ -31,7 +31,7 @@ const tags = [
         color: '#3178C6'
     },
     {
-        name: "CSS",
+        name: "Css",
         icon: css,
         color: '#1572B6'
     },
@@ -81,7 +81,7 @@ const tags = [
         color: '#47A248'
     },
     {
-        name: "nextjs",
+        name: "Next.js",
         icon: nextjs,
         color: '#000000'
         
@@ -331,5 +331,134 @@ const projects = [
     transform: scale(1.1);
     }
 
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        padding: 1.5rem;
+        margin: 80px auto 0 auto;
+    }
+
+    .project-title {
+        font-size: 1rem;
+    }
+
+    .tag-icon-img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .tag-name {
+        font-size: 0.65rem;
+    }
+    }
+
+    @media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem;
+        margin: 60px auto 0 auto;
+    }
+
+    .project-card {
+        padding: 0.75rem;
+    }
+
+    .project-image-container {
+        aspect-ratio: 16 / 10;
+    }
+
+    .project-title {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .project-description {
+        font-size: 0.9rem;
+        -webkit-line-clamp: 2;
+    }
+
+    .project-status {
+        font-size: 0.85rem;
+    }
+
+    .project-info {
+        margin-top: 1rem;
+    }
+
+    .tags-list {
+        gap: 0.75rem;
+        flex-wrap: wrap;
+    }
+
+    .tag-icon-img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .tag-name {
+        font-size: 0.6rem;
+    }
+
+    .github-overlay-link {
+        width: 28px;
+        height: 28px;
+        font-size: 0.7rem;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0.75rem;
+        margin: 80px auto 0 auto;
+    }
+
+    .project-card {
+        padding: 0.5rem;
+    }
+
+    .project-title {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .project-description {
+        font-size: 0.8rem;
+        -webkit-line-clamp: 2;
+    }
+
+    .project-status {
+        font-size: 0.75rem;
+    }
+
+    .project-info {
+        margin-top: 0.75rem;
+    }
+
+    .tags-list {
+        gap: 0.5rem;
+    }
+
+    .tag-icon-img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .tag-name {
+        font-size: 0.55rem;
+    }
+
+    .github-overlay-link {
+        width: 24px;
+        height: 24px;
+        font-size: 0.6rem;
+        bottom: 5px;
+        right: 5px;
+    }
+    }
 
 </style>
