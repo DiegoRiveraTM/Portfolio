@@ -1,0 +1,79 @@
+---
+import github from '../../public/svg/github.svg';
+import linkedin from '../../public/svg/linkedin.svg';
+
+const icons = [
+    {
+        name: "GitHub",
+        icon: github,
+        color: '#181717',
+        url: "https://github.com/DiegoRiveraTM"
+    },
+    {
+        name: "LinkedIn",
+        icon: linkedin,
+        color: '#0077B5',
+        url: "https://www.linkedin.com/in/diego-rivera-301a23210"
+    },
+]
+---
+
+<footer>
+    <div class="container">
+        <div class="icons">
+            {icons.map((icon) => (
+                <a href={icon.url} target="blank" rel="noopener noreferrer" style={`color: ${icon.color};`}>
+                    <icon.icon />
+                </a>
+            ))}
+        </div>
+        <p class="text-footer">&copy; {new Date().getFullYear()} <a href="https://github.com/DiegoRiveraTM" target="blank" rel="noopener noreferrer">Diego Rivera</a>. All rights reserved.</p>
+    </div>
+</footer>
+
+<style>
+    footer {
+        width: 100%;
+        margin-top: 50px;
+        padding: 2rem 0;
+    }
+    .icons {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: center;
+    }
+    .icons :global(svg) {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+    }
+
+    .icons a:hover {
+        transform: scale(1.1);
+    }
+
+    p {
+        color: #9ca3af;
+        font-size: 0.9rem;
+    }
+    .text-footer {
+        color: white;
+    }
+        container a{
+        text-decoration: none;
+        color: white;
+    }
+    .text-footer a:visited{
+        color: white;
+    }
+    .text-footer a {
+        text-decoration: underline;
+    }
+    
+</style>

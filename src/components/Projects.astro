@@ -10,7 +10,9 @@ import kotlin from '../../public/svg/kotlin.svg';
 import postgresql from '../../public/svg/postgresql.svg';
 import sqlite from '../../public/svg/sqlite.svg';
 import tailwindcss from '../../public/svg/tailwindcss.svg';
-import { mac } from 'astro:schema';
+import docker from '../../public/svg/docker.svg';
+import mongodb from '../../public/svg/mongodb.svg';
+import nextjs from '../../public/svg/nextjs.svg';
 
 const tags = [
     {
@@ -67,6 +69,22 @@ const tags = [
         name: "Tailwind CSS",
         icon: tailwindcss,
         color: '#06B6D4'
+    }, 
+    {
+        name: "Docker",
+        icon: docker,
+        color: '#2496ED'
+    },
+    {
+        name: "MongoDB",
+        icon: mongodb,
+        color: '#47A248'
+    },
+    {
+        name: "nextjs",
+        icon: nextjs,
+        color: '#000000'
+        
     }
 ]
 
@@ -77,7 +95,7 @@ const projects = [
         status: "Finished (not deployed)",
         link: "https://github.com/DiegoRiveraTM/Wallet-Kotlin",
         icon: github,
-        image: "",
+        image: "../../src/assets/wallet.png",
         tags: [tags[6], tags[9]],
         github: "https://github.com/DiegoRiveraTM/Wallet-Kotlin"
     },
@@ -87,8 +105,8 @@ const projects = [
         status: "In development",
         link: "https://github.com/DiegoRiveraTM/mobileApp",
         icon: github,
-        image: "",
-        tags: [tags[3], tags[4], tags[5], tags[0], tags[2]],
+        image: "../../src/assets/shift.png",
+        tags: [tags[3], tags[4], tags[5], tags[0], tags[2], tags[11]],
         github: "https://github.com/DiegoRiveraTM/mobileApp"
     },
     {
@@ -97,7 +115,7 @@ const projects = [
         status: "Finished (not deployed)",
         link: "https://github.com/DiegoRiveraTM/TecmiDoc",
         icon: github,
-        image: "",
+        image: "../../src/assets/javafx.jpg",
         tags: [tags[1], tags[7]],
         github: "https://github.com/DiegoRiveraTM/TecmiDoc"
     },
@@ -107,9 +125,19 @@ const projects = [
         status: "In development",
         link: "https://github.com/DiegoRiveraTM/NovaBank",
         icon: github,
-        image: "",
-        tags: [tags[4], tags[0], tags[8], tags[3], tags[2]],
+        image: "../../src/assets/nova.jpg",
+        tags: [tags[4], tags[0], tags[3], tags[2], tags[12]],
         github: "https://github.com/DiegoRiveraTM/NovaBank"
+    },
+    {
+        name: "Clothing Store",
+        description: "Web app to simulate a clothing store e-commerce, this app was made for a final project of the fullstack course.",
+        status: "Finished (not deployed)",
+        link: "https://github.com/DiegoRiveraTM/Tienda-Ropa-FS",
+        icon: github,
+        image: "../../src/assets/tdrp.png",
+        tags: [tags[0], tags[2], tags[3], tags[12], tags[13]],
+        github: "https://github.com/DiegoRiveraTM/Tienda-Ropa-FS"
     }
 
 ]
@@ -117,7 +145,7 @@ const projects = [
 
 <section id="projects" class="projects-grid">
 {
-    projects.map(({ name, image, tags, github, icon, description}) => (
+    projects.map(({ name, image, tags, github, icon, description, status}) => (
     <article class="project-card">
         <div class="project-image-container">
         <div class="blur-background" style={`background-image: url(${image})`}></div>
@@ -134,6 +162,7 @@ const projects = [
         <div class="project-info">
         <h3 class="project-title">{name}</h3>
         <p class="project-description">{description}</p>
+        <p class="project-status">{status}</p>
         <ul class="tags-list">
             {tags.map((tag) => (
             <li class="tag-item">
@@ -151,8 +180,8 @@ const projects = [
 <style>
     .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -162,8 +191,11 @@ const projects = [
     .project-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 1rem;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
     .project-description {
@@ -174,16 +206,24 @@ const projects = [
         -webkit-box-orient: vertical;
     }
 
+    .project-status {
+        color: white;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        font-style: oblique;
+    }
     .project-image-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    aspect-ratio: 16 / 9; 
     border-radius: 12px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     }
 
     .blur-background {
@@ -191,21 +231,21 @@ const projects = [
     inset: 0;
     background-size: cover;
     background-position: center;
-    filter: blur(20px) brightness(0.7);
-    transform: scale(1.2);
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
+    filter: blur(25px);
+    opacity: 0.15;
+    transform: scale(1.1);
     }
 
     .project-image-wrapper {
     position: relative;
     z-index: 1;
-    width: 85%;
-    height: 80%;
-    background: white;
-    padding: 5px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
+    width: 100%;      
+    height: 100%;      
+    background: transparent; 
+    padding: 0;        
+    display: flex;
+    justify-content: center;
+    align-items: center;
     }
 
     .project-img {
@@ -213,6 +253,9 @@ const projects = [
     height: 100%;
     object-fit: cover;
     display: block;
+    object-fit: contain;
+    object-position: center;
+    
     }
 
     .project-info {
@@ -259,35 +302,34 @@ const projects = [
     transform: translateY(-10px);
     }
 
-    .project-card:hover .blur-background {
-    opacity: 0.8;
-    }
-
     .project-card:hover .project-image-wrapper {
     transform: scale(1.05);
     }
 
     .github-overlay-link {
     position: absolute;
-    bottom: -15px;
-    right: -15px;
-    background: #1a1e3a;
+    bottom: 10px; 
+    right: 10px;  
+    background: rgba(26, 30, 58, 0.9); 
     color: white;
-    width: 40px;
-    height: 40px;
+    width: 32px;  
+    height: 32px; 
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    border-radius: 6px;
+    font-size: 0.8rem; 
     text-decoration: none;
     border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     transition: all 0.2s ease;
+    z-index: 10;
     }
 
     .github-overlay-link:hover {
     background: #2d3463;
     transform: scale(1.1);
     }
+
 
 </style>
