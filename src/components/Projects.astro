@@ -1,16 +1,293 @@
 ---
+import github from '../../public/svg/github.svg';
+import java from '../../public/svg/java.svg';
+import react from '../../public/svg/react.svg';
+import mysql from '../../public/svg/mysql.svg';
+import express from '../../public/svg/express.svg';
+import typescript from '../../public/svg/typescript.svg';
+import css from '../../public/svg/css.svg';
+import kotlin from '../../public/svg/kotlin.svg';
+import postgresql from '../../public/svg/postgresql.svg';
+import sqlite from '../../public/svg/sqlite.svg';
+import tailwindcss from '../../public/svg/tailwindcss.svg';
+import { mac } from 'astro:schema';
 
+const tags = [
+    {
+        name: "React",
+        icon: react,
+        color: '#61DAFB'
+    },
+    {
+        name: "Java",
+        icon: java,
+        color: '#007396'
+    },
+    {
+        name: "TypeScript",
+        icon: typescript,
+        color: '#3178C6'
+    },
+    {
+        name: "CSS",
+        icon: css,
+        color: '#1572B6'
+    },
+    {
+        name: "Express",
+        icon: express,
+        color: '#000000'
+    },
+    {
+        name: "MySQL",
+        icon: mysql,
+        color: '#4479A1'
+    },
+    {
+        name: "Kotlin",
+        icon: kotlin,
+        color: '#0095D5'
+    },
+    {
+        name: "PostgreSQL",
+        icon: postgresql,
+        color: '#336791'
+    },
+    {
+        name: "GitHub",
+        icon: github,
+        color: '#181717'
+    },
+    {
+        name: "SQLite",
+        icon: sqlite,
+        color: '#003B57'
+    },
+    {
+        name: "Tailwind CSS",
+        icon: tailwindcss,
+        color: '#06B6D4'
+    }
+]
+
+const projects = [
+    {
+        name: "Kotlin Android App",
+        description: "A wallet in kotlin to manage your money, simulate investments and check top 10 cryptocurrencies.",
+        status: "Finished (not deployed)",
+        link: "https://github.com/DiegoRiveraTM/Wallet-Kotlin",
+        icon: github,
+        image: "",
+        tags: [tags[6], tags[9]],
+        github: "https://github.com/DiegoRiveraTM/Wallet-Kotlin"
+    },
+    {
+        name: "Shift Manager",
+        description: "A react native app to manage your workers shifts, this app was made for a business in Vancouver",
+        status: "In development",
+        link: "https://github.com/DiegoRiveraTM/mobileApp",
+        icon: github,
+        image: "",
+        tags: [tags[3], tags[4], tags[5], tags[0], tags[2]],
+        github: "https://github.com/DiegoRiveraTM/mobileApp"
+    },
+    {
+        name: "TecmiDoc",
+        description: "A Java desktop app to make medical appointements and manage patients, this app was made for a final project of the bases de datos class.",
+        status: "Finished (not deployed)",
+        link: "https://github.com/DiegoRiveraTM/TecmiDoc",
+        icon: github,
+        image: "",
+        tags: [tags[1], tags[7]],
+        github: "https://github.com/DiegoRiveraTM/TecmiDoc"
+    },
+    {
+        name: "NovaBank",
+        description: "A react web app to manage your money, simulate transactions, made it for the final project of DevOps class, the app is not deployed and the intention was to deploy it using AWS.",
+        status: "In development",
+        link: "https://github.com/DiegoRiveraTM/NovaBank",
+        icon: github,
+        image: "",
+        tags: [tags[4], tags[0], tags[8], tags[3], tags[2]],
+        github: "https://github.com/DiegoRiveraTM/NovaBank"
+    }
+
+]
 ---
 
-<section id="projects">
-    <h2>Projects</h2>
-    <div class="content">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit
+<section id="projects" class="projects-grid">
+{
+    projects.map(({ name, image, tags, github, icon, description}) => (
+    <article class="project-card">
+        <div class="project-image-container">
+        <div class="blur-background" style={`background-image: url(${image})`}></div>
+        <div class="project-image-wrapper">
+            <img alt={name} class="project-img" loading="lazy" src={image} />
+            {github && (
+            <a href={github} class="github-overlay-link" target="_blank">
+                <span class="icon-code">{"</>"}</span>
+            </a>
+            )}
+        </div>
+        </div>
+
+        <div class="project-info">
+        <h3 class="project-title">{name}</h3>
+        <p class="project-description">{description}</p>
+        <ul class="tags-list">
+            {tags.map((tag) => (
+            <li class="tag-item">
+                <img src={tag.icon.src} alt={tag.name} class="tag-icon-img" />
+                <span class="tag-name">{tag.name}</span>
+            </li>
+            ))}
+        </ul>
+        </div>
+    </article>
+    ))
+}
 </section>
 
 <style>
-    section{
-        padding: 100px 0px;
-        scroll-margin-top: 80px;
+    .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 3rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin: 100px auto 0 auto;
     }
+
+    .project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .project-description {
+        color: white;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+
+    .project-image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    }
+
+    .blur-background {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px) brightness(0.7);
+    transform: scale(1.2);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    }
+
+    .project-image-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 85%;
+    height: 80%;
+    background: white;
+    padding: 5px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    }
+
+    .project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    }
+
+    .project-info {
+    text-align: center;
+    margin-top: 1.5rem;
+    }
+
+    .project-title {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+    }
+
+    .tags-list {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    }
+
+    .tag-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    }
+
+    .tag-icon-img {
+    width: 24px;
+    height: 24px;
+    color: #a5b4fc;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
+    }
+
+    .tag-name {
+    color: #9ca3af;
+    font-size: 0.75rem;
+    }
+
+    .project-card:hover {
+    transform: translateY(-10px);
+    }
+
+    .project-card:hover .blur-background {
+    opacity: 0.8;
+    }
+
+    .project-card:hover .project-image-wrapper {
+    transform: scale(1.05);
+    }
+
+    .github-overlay-link {
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    background: #1a1e3a;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: all 0.2s ease;
+    }
+
+    .github-overlay-link:hover {
+    background: #2d3463;
+    transform: scale(1.1);
+    }
+
 </style>
