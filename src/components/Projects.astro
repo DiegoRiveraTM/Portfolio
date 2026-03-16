@@ -186,6 +186,7 @@ const projects = [
     max-width: 1200px;
     margin: 0 auto;
     margin: 100px auto 0 auto;
+    scroll-margin-top: 120px;
     }
 
     .project-card {
@@ -304,6 +305,18 @@ const projects = [
 
     .project-card:hover .project-image-wrapper {
     transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+    .projects-grid {
+        scroll-margin-top: 90px;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .projects-grid {
+        scroll-margin-top: 80px;
+    }
     }
 
     .github-overlay-link {

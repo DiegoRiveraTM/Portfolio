@@ -1,16 +1,32 @@
 ---
-import Projects from "./Projects.astro"
+interface Props {
+    sticky?: boolean;
+}
+
+const { sticky = true } = Astro.props;
 ---
 
-<nav>
+<nav class:list={[sticky && 'is-sticky']}>
     <ul class="container">
         <li class="header"><a href="#home">Home</a></li>
         <li class="header"><a href="#projects">Projects</a></li>
-        <li class="header"><a href="#contact">Contact Me</a></li>
+        <!-- <li class="header"><a href="#contact">Contact Me</a></li> -->
     </ul>
 </nav>
 
 <style>
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    nav.is-sticky {
+        position: sticky;
+        top: 20px;
+        z-index: 50;
+    }
+
     .container{
         display: flex;
         gap: 40px;
@@ -20,7 +36,6 @@ import Projects from "./Projects.astro"
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 50px;
         padding: 10px 30px;
-        position: sticky;
         top: 20px;
         margin: 20px auto;
         text-decoration: none;
@@ -34,9 +49,10 @@ import Projects from "./Projects.astro"
         color: white; 
         cursor: pointer;
         font-style: DM-Sans;
+
     }
 
-    container a{
+    .container a{
         text-decoration: none;
         color: white;
     }
@@ -51,7 +67,7 @@ import Projects from "./Projects.astro"
     .container {
         gap: 20px;
         padding: 8px 20px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         top: 10px;
         margin: 10px auto;
     }
@@ -62,7 +78,7 @@ import Projects from "./Projects.astro"
         font-size: 0.9rem;
     }
 
-    container a{
+    .container a{
         text-decoration: none;
         color: white;
     }
@@ -79,7 +95,7 @@ import Projects from "./Projects.astro"
     .container {
         gap: 15px;
         padding: 8px 15px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         top: 5px;
         margin: 5px auto;
         border-radius: 40px;
@@ -90,7 +106,7 @@ import Projects from "./Projects.astro"
         font-size: 0.8rem;
     }
 
-    container a{
+    .container a{
         text-decoration: none;
         color: white;
     }

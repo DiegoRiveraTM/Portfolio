@@ -2,17 +2,15 @@
 import { Image } from 'astro:assets';
 import dr from '../assets/dr.jpg'
 ---
-<section class="hero">
+<section id="home" class="hero">
     <div class="content">
         <p class="greeting">Hi! I'm Diego Rivera</p>
         <h1 class="position"><span>Software Developer</span></h1>
         <p class="description">
             Currently studying my 5th semester, I like to travel, listen music and drink coffee.</p>
-            <p class="description">My interests are: Backend and mobile apps.
+        <p class="description">My interests are: Backend and mobile apps.
             Very soon I will do my last year especializing in DevOps, hope we can connect soon!
-            </p>
         </p>
-        <p></p>
     </div>
 
     <div class="image-container">
@@ -33,19 +31,20 @@ import dr from '../assets/dr.jpg'
     }
     .hero{
         display: flex;
-        justify-content: center;
-        display: flex;
         align-items: center;
-        justify-content: center; 
+        justify-content: space-around; 
         gap: 100px;             
-        min-height: 80vh;
-        padding: 0 20px;
+        min-height: 40vh;
+        padding: 60px 20px 30px;
         max-width: 1200px;      
         margin: 0 auto;
+        margin-bottom: 5rem;
+        scroll-margin-top: 120px;
     }
     .greeting{
         color: white;
         font-weight: bolder;
+        margin-bottom: 1rem;
     }
     .position{
         color:white;
@@ -53,13 +52,6 @@ import dr from '../assets/dr.jpg'
     .description{
         color:white;
         text-align: justify;
-    }
-    .hero{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        padding: 100px 20px;
-        min-height: 40vh;
     }
     .content{
         flex: 1;            
@@ -72,7 +64,7 @@ import dr from '../assets/dr.jpg'
     @media (max-width: 1024px) {
     .hero {
         gap: 50px;
-        padding: 80px 20px;
+        padding: 50px 20px 25px;
     }
 
     .image-container img {
@@ -95,6 +87,7 @@ import dr from '../assets/dr.jpg'
         gap: 30px;
         padding: 60px 20px;
         min-height: auto;
+        scroll-margin-top: 90px;
     }
 
     .image-container {
@@ -127,9 +120,11 @@ import dr from '../assets/dr.jpg'
     @media (max-width: 480px) {
     .hero {
         flex-direction: column;
-        gap: 20px;
+        gap: 28px;
         padding: 40px 15px;
         min-height: auto;
+        scroll-margin-top: 80px;
+        margin-bottom: 1.5rem;
     }
 
     .image-container img {
