@@ -1,4 +1,5 @@
 ---
+import aws from '../../public/svg/aws.svg'
 import github from '../../public/svg/github.svg';
 import java from '../../public/svg/java.svg';
 import react from '../../public/svg/react.svg';
@@ -13,6 +14,8 @@ import tailwindcss from '../../public/svg/tailwindcss.svg';
 import docker from '../../public/svg/docker.svg';
 import mongodb from '../../public/svg/mongodb.svg';
 import nextjs from '../../public/svg/nextjs.svg';
+import grafana from '../../public/svg/grafana.svg'
+import terraform from '../../public/svg/terraform.svg'
 
 const tags = [
     {
@@ -85,10 +88,36 @@ const tags = [
         icon: nextjs,
         color: '#000000'
         
+    },
+    {
+        name: "Grafana",
+        icon: grafana,
+        color: '#F46800'
+    },
+    {
+        name: "Terraform",
+        icon: terraform,
+        color: '#844FBA'
+    },
+    {
+        name: "AWS",
+        icon: aws,
+        color: '#000000'
     }
 ]
 
 const projects = [
+    {
+        name: "MetricsWatch",
+        description: "Cloud infrastructure monitoring platform using Prometheus, Grafana, Docker, and Terraform on AWS.",
+        status: "Finished (Deployed in AWS)",
+        link: "https://github.com/DiegoRiveraTM/MetricsWatch",
+        icon: github,
+        image: "/projects/grafana-dashboard-aws_instance.png",
+        tags: [tags[2], tags[4], tags[11], tags[14], tags[15], tags[16]],
+        github: "https://github.com/DiegoRiveraTM/MetricsWatch"
+
+    },
     {
         name: "Kotlin Android App",
         description: "A wallet in kotlin to manage your money, simulate investments and check top 10 cryptocurrencies.",
