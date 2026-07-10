@@ -16,102 +16,145 @@ import mongodb from '../../public/svg/mongodb.svg';
 import nextjs from '../../public/svg/nextjs.svg';
 import grafana from '../../public/svg/grafana.svg'
 import terraform from '../../public/svg/terraform.svg'
+import fastapi from '../../public/svg/fastapi.svg'
+import redis from '../../public/svg/redis.svg'
 
 const tags = [
     {
+        //0
         name: "React",
         icon: react,
         color: '#61DAFB'
     },
     {
+        //1
         name: "Java",
         icon: java,
         color: '#007396'
     },
     {
+        //2
         name: "TypeScript",
         icon: typescript,
         color: '#3178C6'
     },
     {
+        //3
         name: "Css",
         icon: css,
         color: '#1572B6'
     },
     {
+        //4
         name: "Express",
         icon: express,
         color: '#000000'
     },
     {
+        //5
         name: "MySQL",
         icon: mysql,
         color: '#4479A1'
     },
     {
+        //6
         name: "Kotlin",
         icon: kotlin,
         color: '#0095D5'
     },
     {
+        //7
         name: "PostgreSQL",
         icon: postgresql,
         color: '#336791'
     },
     {
+        //8
         name: "GitHub",
         icon: github,
         color: '#181717'
     },
     {
+        //9
         name: "SQLite",
         icon: sqlite,
         color: '#003B57'
     },
     {
+        //10
         name: "Tailwind CSS",
         icon: tailwindcss,
         color: '#06B6D4'
     }, 
     {
+        //11
         name: "Docker",
         icon: docker,
         color: '#2496ED'
     },
     {
+        //12
         name: "MongoDB",
         icon: mongodb,
         color: '#47A248'
     },
     {
+        //13
         name: "Next.js",
         icon: nextjs,
         color: '#000000'
         
     },
     {
+        //14
         name: "Grafana",
         icon: grafana,
         color: '#F46800'
     },
     {
+        //15
         name: "Terraform",
         icon: terraform,
         color: '#844FBA'
     },
     {
+        //16
         name: "AWS",
         icon: aws,
         color: '#000000'
     },
     {
+        //17
         name: "GitHub Actions",
         icon: github,
         color: '#181717'
     },
+    {
+        //18
+        name: "FastApi",
+        icon: fastapi,
+        color: '#000000'
+    },
+    {
+        //19
+        name: "Redis",
+        icon: redis,
+        color: '#000000'
+    }
 ]
 
 const projects = [
+    {
+        name: "TaskForMe",
+        description: "A full-stack task management application built with a production-grade architecture for learning purposes.",
+        status: "Finished (Ready to be deployed in AWS)",
+        link: "https://github.com/DiegoRiveraTM/TaskForMe",
+        icon: github,
+        image: "/projects/TaskForMe.png",
+        tags: [tags[0], tags[2], tags[7], tags[10], tags[11], tags[13],tags[14], tags[15], tags[16], tags[17], tags[18], tags[19]],
+        github: "https://github.com/DiegoRiveraTM/TaskForMe"
+
+    },
     {
         name: "MetricsWatch",
         description: "Cloud infrastructure monitoring platform using Prometheus, Grafana, Docker, and Terraform on AWS.",
@@ -311,6 +354,7 @@ const projects = [
     gap: 1rem;
     list-style: none;
     padding: 0;
+    flex-wrap: wrap; /*to wrap to the next line */
     }
 
     .tag-item {
